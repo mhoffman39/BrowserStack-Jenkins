@@ -1,4 +1,5 @@
-let buildName = process.env.BROWSERSTACK_BUILD_NAME;
+const buildName = process.env.BROWSERSTACK_BUILD_NAME;
+
 exports.config = {
   user: process.env.BROWSERSTACK_USERNAME,
   key: process.env.BROWSERSTACK_ACCESS_KEY,
@@ -21,8 +22,7 @@ exports.config = {
     'browser': 'chrome',
     'browser_version': 'latest',
     'os': 'Windows',
-    'os_version': '10',
-    'build': buildName,
+    'os_version': '10'
   },{
     "os_version" : "14",
     "device" : "iPad Air 4",
