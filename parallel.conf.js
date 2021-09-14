@@ -61,11 +61,7 @@ exports.config = {
   connectionRetryTimeout: 30000,
   connectionRetryCount: 3,
   host: 'hub.browserstack.com',
-  // before: function () {
-  //   var chai = require('chai');
-  //   global.expect = chai.expect;
-  //   chai.Should();
-  // },
+
   framework: 'mocha',
   mochaOpts: {
       ui: 'bdd'
@@ -73,7 +69,6 @@ exports.config = {
   // Code to mark the status of test on BrowserStack based on the assertion status
   afterTest: function (test, context, { error, result, duration, passed, retries }) {
     if(passed) {
-      console.log('passed');
       browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"passed","reason": "Assertions passed"}}');
     } else {
       browser.executeScript('browserstack_executor: {"action": "setSessionStatus", "arguments": {"status":"failed","reason": "At least 1 assertion failed"}}');
